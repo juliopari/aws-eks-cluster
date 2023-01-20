@@ -1,5 +1,14 @@
 # aws-eks
 
+## 0. Realizar login con AWS CLI desde CMD
+```
+$ aws configure
+AWS Access Key ID [****************CDFV]: <Se obtiene de security credentials>
+AWS Secret Access Key [****************r+tf]: <Se obtiene de security credentials>
+Default region name [us-east-1]: us-east-1 <Region del EKS creado>
+Default output format [None]: <enter>
+```
+
 ## 0. Descargar kubeconfig y ubicar en "C:\Users\USER\.kube" con nombre "config" sin extensión
 ```
 C:\Users\USER\.kube\config
