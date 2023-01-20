@@ -15,7 +15,7 @@ kubectl get ns
 kubectl delete ns <namespace>
 ```
 
-## 3. Crear namespace node (ubicar en la carpeta /kubernetes/digital-ocean-deployment/)
+## 3. Crear namespace node (ubicar en la carpeta /kubernetes/)
 ```
 kubectl apply -f 00-namespace.yaml
 ```
