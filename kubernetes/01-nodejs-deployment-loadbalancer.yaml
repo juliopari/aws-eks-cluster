@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nodejs-invoke-reqres
+spec:
+  selector:
+    matchLabels:
+      app: nodejs-invoke-reqres
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: nodejs-invoke-reqres
+    spec:
+      containers:
+      - name: nodejs-invoke-reqres
+        image: juliopari/nodejs-invoke-reqres:v1
+        ports:
+        - name: http
+          containerPort: 3000
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: nodejs-invoke-reqres
+  annotations:
+    service.beta.kubernetes.io/azure-load-balancer-internal: "true"
+    service.beta.kubernetes.io/do-loadbalancer-algorithm: "least_connections"
+spec:
+  type: LoadBalancer
+  ports:
+  - name: http
+    port: 80
+    targetPort: 3000
+    protocol: TCP
+  selector:
+    app: nodejs-invoke-reqres
